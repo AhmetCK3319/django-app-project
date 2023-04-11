@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} index {% endblock title %}
+{% block container %}
+<div class="container mt-3">
+    <div class="row">
+        <h1>index sayfası</h1>
+        <div class="col-sm-3">
+            {% include 'part/categories.html' %}
+        </div>
+        <div class="col-sm-9">
+            {% for blog in blogs %}
+                {% if blog.is_home %}
+                    {% include 'blogapp/cards/_blog.html' %}
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock container %}

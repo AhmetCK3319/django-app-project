@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="card my-3">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="{{ blog.images.url }}" class="card-img-top">
+        </div>
+        <div class="col-sm-9">
+            <div class="card-body">
+                <a href="{% url 'blogs_detail' blog.slug  %}">
+                    {{ blog.title }}
+                </a>
+                <p class="card-text">Harika kurs içeriği</p>
+                <button type="button" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>

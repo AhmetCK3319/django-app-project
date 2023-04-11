@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} blogs {% endblock title %}
+{% block container %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-3">
+            {% include 'part/categories.html' %}
+        </div>
+        <div class="col-sm-9">
+            <h1>Blogs Sayfası</h1>
+            {% if blogs|length > 0 %}
+                {% for blog in blogs %}
+                    {% if blog.is_active %}
+                        {% include 'blogapp/cards/_blog.html' %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-warning">
+                    Category burada yok dostum !!!
+                </div>   
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock container %}

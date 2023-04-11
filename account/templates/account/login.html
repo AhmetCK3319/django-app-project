@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} login {% endblock title %}
+{% block container %}
+<div class="container mt-3">
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {% if error %}
+        <div class="alert alert-warning">
+            {{ error }}
+        </div>
+        {% endif %}
+        <img class="mb-4" src="https://seeklogo.com/images/T/turkiye-yuvarlak-logo-6483C54DD8-seeklogo.com.png" alt=""
+            width="52" height="52">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name='username'>
+            <label for="username">Username</label>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" name='password'>
+            <label for="Password">Password</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+    </form>
+</div>
+<br>
+{% endblock container %}
